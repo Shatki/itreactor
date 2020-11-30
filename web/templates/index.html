@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    {% block head %}
+        <title>IT Reactor - IT Production studio</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Cloud 83 - hosting template ">
+        <meta name="author" content="Seliverstov Dmitry">
+        <meta name="keywords" content="it, web, site, html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Favicon -->
+        <link href="{% static "img/favicon.ico" %}" rel="shortcut icon"/>
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="{%  static 'css/bootstrap.min.css' %}" type="text/css"/>
+        <link rel="stylesheet" href="{%  static 'css/font-awesome.min.css' %}"/>
+        <link rel="stylesheet" href="{%  static 'css/flaticon.css' %}"/>
+        <link rel="stylesheet" href="{%  static 'css/owl.carousel.min.css' %}"/>
+        <link rel="stylesheet" href="{%  static 'css/animate.css' %}"/>
+        <link rel="stylesheet" href="{%  static 'css/style.css' %}"/>
+
+
+        <!--[if lt IE 9]>
+        <script src="{% static 'js/html5shiv.min.js' %}"></script>
+        <script src="{% static 'js/respond.min.js' %}"></script>
+        <![endif]-->
+    {% endblock head %}
+</head>
+
+<body>
+{% block body %}
+    <!-- Page Preloder -->
+    <div id="preloder">
+        {% block preloader %}
+            <div class="loader"></div>
+        {% endblock preloader %}
+    </div>
+
+    <!-- Header section -->
+    <header class="header-section">
+        {% block header %}
+            <a href="/" class="site-logo"><img src="{% static 'img/logo.png' %}" alt=""></a>
+            <div class="nav-switch">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="nav-warp">
+                {% if user.is_authenticated %}
+                    <div class="user-panel">
+                    <a href="{% url 'logout'%}">Выйти</a>
+                </div>
+                {% else %}
+                <div class="user-panel">
+                    <a href="{% url 'login'%}">Войти</a>
+                </div>
+                {% endif %}
+                <ul class="main-menu">
+                    <li><a href="/">Начало</a></li>
+                    <li><a href="{% url 'about'%}">О нас</a></li>
+                    <li><a href="{% url 'service'%}">Услуги</a></li>
+                    <li><a href="{% url 'blog'%}">Новости</a></li>
+                    <li><a href="{% url 'contact'%}">Контакты</a></li>
+                </ul>
+            </div>
+        {% endblock header %}
+    </header>
+    <!-- Header section end -->
+
+    {% block content %}
+    {% endblock content %}
+
+    <!-- Footer top section -->
+    {% block footertop %}
+        {% include 'footertop.html' %}
+    {% endblock footertop %}
+    <!-- Footer top section end -->
+
+
+    <!-- Footer section -->
+    {% block footer %}
+        {% include 'footer.html' %}
+    {% endblock footer %}
+    <!-- Footer section end -->
+
+    {% block scripts %}
+        <!--====== Javascripts & Jquery ======-->
+        <script src="{%  static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{%  static 'js/bootstrap.min.js' %}"></script>
+        <script src="{%  static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{%  static 'js/circle-progress.min.js' %}"></script>
+        <script src="{%  static 'js/main.js' %}"></script>
+    {% endblock scripts %}
+{% endblock body %}
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% block content %}
+	<!-- Page Top section -->
+	{% block top %}
+        {% include 'about_top.html' %}
+    {% endblock %}
+	<!-- Page Top section end -->
+
+
+	<!-- Domain search section -->
+    {% block domain %}
+        {% include 'about_domain.html' %}
+    {% endblock %}
+	<!-- Domain search section end -->
+
+
+	<!-- About section -->
+    {%  block about %}
+        {% include 'about.html' %}
+    {% endblock %}
+	<!-- About section end -->
+
+
+	<!-- Milestones section -->
+	{% block milestones %}
+        {% include 'milestones.html' %}
+    {% endblock %}
+	<!-- Milestones section end -->
+
+
+	<!-- Team section -->
+	{% block team %}
+        {% include 'team.html' %}
+    {% endblock %}
+	<!-- Team section end-->
+
+
+	<!-- Clients section end-->
+	{% block clients %}
+        {% include 'clients.html' %}
+    {% endblock %}
+	<!-- Clients section end-->
+{% endblock %}

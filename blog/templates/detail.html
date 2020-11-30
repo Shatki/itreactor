@@ -1,0 +1,85 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block ts-content %}
+    <div class="ts-content">
+        <!--HERO HEADER
+        ================================================================================================================
+        ================================================================================================================
+        -->
+        <header id="ts-hero" class="ts-block">
+
+            <div class="container pt-2 pt-sm-5 pt-lg-0">
+                <div class="ts-title mb-0">
+                    <h1>{{ news.title }}</h1>
+                </div>
+            </div>
+
+        </header>
+
+        <!--MAIN CONTENT
+        ================================================================================================================
+        ================================================================================================================
+        -->
+        <main id="ts-content">
+
+            <!--Blog Listing
+            ============================================================================================================
+            -->
+
+            <div class="container">
+
+                <div class="row">
+                    <!-- Content -->
+
+                    <div class="col-md-9 col-sm-9">
+
+                        <section>
+
+                            <article class="blog-post">
+                                <a href="news__detail.html" class="blog-post-header-image">
+                                    <div class="bg-transfer"><img src="{{ news.photo.url }}" alt=""></div>
+                                </a>
+                                <figure class="meta">
+                                    <a href="#" class="link-icon"><i class="fa fa-user"></i> {{ news.author.get_full_name }}</a>
+                                    <a href="#" class="link-icon"><i class="fa fa-calendar"></i> {{ news.date }}</a>
+                                </figure>
+                                {% autoescape off %}
+                                    {{ news.text }}
+                                {% endautoescape %}
+                            </article>
+
+                        </section>
+
+                        {% block comments %}
+                            {% include 'comments.html' %}
+                        {% endblock comments %}
+                    </div>
+                    <!-- end Content -->
+
+                    <!-- sidebar -->
+                    <div class="col-md-3 col-sm-3">
+
+                        {% block sidebar %}
+                            {% include 'sidebar.html' %}
+                        {% endblock sidebar %}
+
+                    </div>
+
+                    <!-- end Sidebar -->
+                </div>
+            </div>
+
+        </main>
+        <!--end #content-->
+
+        <!--FOOTER
+        ================================================================================================================
+        ================================================================================================================
+        -->
+        {% block footer %}
+            {% include 'footer.html' %}
+        {% endblock footer %}
+    </div>
+    <!--end page-->
+{% endblock ts-content %}

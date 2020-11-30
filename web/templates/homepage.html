@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <!-- Hero section -->
+    {% block hero %}
+        {% include 'hero.html' %}
+    {% endblock hero %}
+    <!-- Hero section end -->
+
+
+    <!-- Features section -->
+    {% block features %}
+        {% include "features.html" %}
+    {% endblock features %}
+    <!-- Features section end -->
+
+
+
+    <!-- Domain search section -->
+    {% block domain %}
+        {% include 'domain.html' %}
+    {% endblock domain %}
+    <!-- Domain search section end -->
+
+
+    <!-- Skills & testimonials section -->
+    {% block skills %}
+        {% include 'skills.html' %}
+    {% endblock skills %}
+    <!-- Skills & testimonials section end -->
+
+
+    <!-- Pricing section -->
+    {% block pricing %}
+        {% include 'pricing.html' %}
+    {% endblock pricing%}
+    <!-- Pricing section end -->
+
+
+    <!-- Banner section -->
+    {% block banner %}
+        {% include 'banner.html' %}
+    {% endblock banner %}
+    <!-- Banner section end -->
+{% endblock content %}

@@ -1,0 +1,103 @@
+{% load static %}
+
+{% block faq %}
+    <section class="faq-section spad">
+		<div class="container">
+			<div class="section-title">
+				<img src="{% static 'img/section-title-icon.png' %}" alt="#">
+				<p>The best out there</p>
+				<h2>FAQ</h2>
+			</div>
+			<div id="accordion" class="accordion-area faq-accordion">
+				<div class="panel">
+					<div class="panel-header" id="headingOne">
+						<button class="panel-link" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Etiam pretium turpis eget nibh laoreet iaculis. Vivamus auctor mi eget odio feugiat. </button>
+					</div>
+					<div id="collapse1" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-10 offset-lg-1">
+									<div class="row">
+										<div class="col-lg-6">
+											<h4>Free Support</h4>
+											<p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis.Nullam lacinia ex eleifend orciporttitor, suscip-it interdum augue condimentum. Etiam pretium turpis eget eleifend orci porttitornibh laoreet iaculis.</p>
+										</div>
+										<div class="col-lg-6">
+											<img src="{% static 'img/faq.jpg' %}" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel">
+					<div class="panel-header" id="headingTwo">
+						<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Vivamus auctor mi eget odio feugiat, quis aliquet velit ornare. Integer egestas sit amet neque sed </button>
+					</div>
+					<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-10 offset-lg-1">
+									<div class="row">
+										<div class="col-lg-6">
+											<h4>Free Support</h4>
+											<p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis.Nullam lacinia ex eleifend orciporttitor, suscip-it interdum augue condimentum. Etiam pretium turpis eget eleifend orci porttitornibh laoreet iaculis.</p>
+										</div>
+										<div class="col-lg-6">
+											<img src="{% static 'img/faq.jpg' %}" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel">
+					<div class="panel-header" id="headingThree">
+						<button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Etiam pretium turpis eget nibh laoreet iaculis. Vivamus auctor mi eget odio feugiat.</button>
+					</div>
+					<div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-10 offset-lg-1">
+									<div class="row">
+										<div class="col-lg-6">
+											<h4>Free Support</h4>
+											<p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis.Nullam lacinia ex eleifend orciporttitor, suscip-it interdum augue condimentum. Etiam pretium turpis eget eleifend orci porttitornibh laoreet iaculis.</p>
+										</div>
+										<div class="col-lg-6">
+											<img src="{% static 'img/faq.jpg' %}" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel">
+					<div class="panel-header" id="headingFour">
+						<button class="panel-link active" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse3">Vivamus auctor mi eget odio feugiat, quis aliquet velit ornare. Integer egestas sit amet neque sed </button>
+					</div>
+					<div id="collapse4" class="collapse show" aria-labelledby="headingFour" data-parent="#accordion">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-10 offset-lg-1">
+									<div class="row">
+										<div class="col-lg-6">
+											<h4>Free Support</h4>
+											<p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis.Nullam lacinia ex eleifend orciporttitor, suscip-it interdum augue condimentum. Etiam pretium turpis eget eleifend orci porttitornibh laoreet iaculis.</p>
+										</div>
+										<div class="col-lg-6">
+											<img src="{% static 'img/faq.jpg' %}" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

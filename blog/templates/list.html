@@ -1,0 +1,121 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block ts-content %}
+    <div class="ts-content">
+        <!--HERO HEADER
+        ================================================================================================================
+        ================================================================================================================
+        -->
+        <header id="ts-hero" class="ts-block">
+
+            <div class="container pt-2 pt-sm-5 pt-lg-0">
+                <div class="ts-title mb-0">
+                    <h1>Новости</h1>
+                </div>
+            </div>
+
+        </header>
+
+        <!--MAIN CONTENT
+        ================================================================================================================
+        ================================================================================================================
+        -->
+        <main id="ts-content">
+
+            <!--News Listing
+            ============================================================================================================
+            -->
+
+
+            <div class="container">
+                <div class="row">
+                    <!-- Content -->
+
+                    <div class="col-md-9 col-sm-9">
+                        <section>
+                            {% for news in news_list %}
+                                <article class="blog-post">
+                                <a href="#" class="blog-post-header-image">
+                                    <div class="bg-transfer"><img src="{{ news.photo.url }}" alt=""></div>
+                                </a>
+                                <header><a href="{{ news.id  }}/"><h2>{{ news.title }}</h2></a></header>
+                                <figure class="meta">
+                                    <a href="#" class="link-icon"><i class="fa fa-user"></i> {{ news.author.get_full_name }}</a>
+                                    <a href="#" class="link-icon"><i class="fa fa-calendar"></i> {{ news.date }}</a>
+                                    {% if news.fix %}
+                                        <a href="#" class="link-icon"><i class="fa fa-lock"></i></a>
+                                    {% endif %}
+                                </figure>
+                                {% autoescape off %}
+                                    {{ news.text | truncatechars_html:400 }}
+                                {% endautoescape %}
+                                <a href="{{ news.id  }}/" class="btn btn-primary btn-small btn-grey">Читать полностью</a>
+                            </article>
+                            {% endfor %}
+
+
+                            <!-- Pagination -->
+                            <div class="text-center">
+                                <nav class="d-inline-block">
+                                    <ul class="pagination">
+
+                                        <li class="page-item">
+                                            <a class="page-link"
+                                                    {% if news_list.has_previous %}
+                                                        href="?page={{ news_list.previous_page_number }}
+                                                    {% endif %}">Назад</a>
+                                        </li>
+
+
+
+                                        {% for page in news_list.list_range %}
+                                            <li class="page-item{% if page == news_list.number %} active{% endif %}">
+                                                <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                                            </li>
+                                        {% endfor %}
+
+
+
+
+                                        <li class="page-item">
+                                            <a class="page-link"
+                                                    {% if news_list.has_next %}
+                                               href="?page={{ news_list.next_page_number }}
+                                                    {% endif %}">Вперед</a>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+
+                        </section>
+                    </div>
+                    <!-- end Content -->
+
+                    <!-- sidebar -->
+                    <div class="col-md-3 col-sm-3">
+                        {% block sidebar %}
+                            {% include 'sidebar.html' %}
+                        {% endblock sidebar %}
+                    </div>
+                    <!-- end Sidebar -->
+
+                </div>
+            </div>
+
+        </main>
+        <!--end #content-->
+
+        <!--FOOTER
+        ================================================================================================================
+        ================================================================================================================
+        -->
+        {% block footer %}
+            {% include 'footer.html' %}
+        {% endblock footer %}
+        <!--end #footer-->
+
+    </div>
+    <!--end page-->
+{% endblock ts-content %}

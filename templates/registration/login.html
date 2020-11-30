@@ -1,0 +1,59 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+    {% block top %}
+    {% endblock %}
+
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    <div class="split left">
+        <div class="centered">
+            {% if not user.is_authenticated %}
+                <h2>Авторизация</h2>
+                <form class="auth-form" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}">
+                    <div>
+                        <input type="text" placeholder="e-mail" name="username">
+                    </div>
+                    <div>
+                        <input type="password" placeholder="пароль" name="password">
+                    </div>
+                    <div class="auth-text">
+                        <p><a href="{% url 'password_reset' %}">Я забыл пароль</a></p>
+                    </div>
+                    <div>
+                        <button class="site-btn">Войти</button>
+                    </div>
+                    <div class="auth-text">
+                        <p><a href="{% url 'register' %}">Зарегистрироваться</a></p>
+                    </div>
+                </form>
+            {% else %}
+                <div class="auth-text">
+                    <p><h4>Привет {{ user.email }}!</h4></p>
+                </div>
+                <div>
+                    <img src="{% static user.photo %}" alt="avatar">
+                </div>
+                <div class="auth-text">
+                    <p><a href="{% url 'logout' %}">Выйти</a></p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="split right auth-text set-bg" data-setbg="{% static 'img/login-bg.jpg' %}">
+    </div>
+    <{% endblock %}
+
+{% block footertop %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

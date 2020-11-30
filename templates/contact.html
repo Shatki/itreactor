@@ -1,0 +1,53 @@
+{% load static %}
+
+{% block contact %}
+    <section class="contact-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 contact-text">
+					<h4>Contact Info</h4>
+					<p>Nullam lacinia ex eleifend orci portt-itor, suscipit interdum augue condi-mentum. Etiam pretium turpis eget nibh laoreet iaculis. Vivamus auctor mi eget odio feugiat.</p>
+					<div class="cont-info">
+						<div class="ci-icon">
+							<img src="{% static 'img/icons/1.png' %}" alt="">
+						</div>
+						<span>Main Str, no 23, New York</span>
+					</div>
+					<div class="cont-info">
+						<div class="ci-icon">
+							<img src="{% static 'img/icons/2.png' %}" alt="">
+						</div>
+						<span>+546 990221 123</span>
+					</div>
+					<div class="cont-info">
+						<div class="ci-icon">
+							<img src="{% static 'img/icons/2.png' %}" alt="">
+						</div>
+						<span>hosting@contact.com</span>
+					</div>
+				</div>
+				<div class="col-lg-9">
+					<form class="contact-form">
+						<div class="row">
+							<div class="col-md-6">
+								<input type="text" placeholder="Your name">
+							</div>
+							<div class="col-md-6">
+								<input type="text" placeholder="Your e-mail">
+							</div>
+							<div class="col-md-12">
+								<input type="text" placeholder="Subject">
+								<textarea placeholder="Message"></textarea>
+								<button class="site-btn">Send</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- load for map -->
+	<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1146.7931979825667!2d44.12471221977881!3d55.187761321420425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3a9d08e5bf31c5bc!2zWFhJIELQtdC6!5e0!3m2!1sru!2sru!4v1605129631208!5m2!1sru!2sru" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+    </iframe>
+	</section>
+
+{% endblock %}

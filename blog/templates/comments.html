@@ -1,0 +1,74 @@
+{% load static %}
+
+{% block comments %}
+    <section id="comments" class="py-5">
+        <hr>
+        <header><h3>Комментарии</h3></header>
+        <ul class="comments list-unstyled">
+            {% for comment in comments %}
+                {% if not comment.reply %}
+                    <li class="comment">
+                    <div class="ts-circle__sm float-left mr-4">
+                        <div class="ts-img-into-bg">
+                            <img
+                                    {% if comment.photo %}
+                                        src="{{ comment.photo.url }}"
+                                    {% else %}
+                                        src="{% static 'img/no-image-icon.png' %}"
+                                    {% endif %}
+                                        alt="">
+                        </div>
+                    </div>
+                    <div class="comment-wrapper" id="{{ comment.id }}">
+                        <div class="name pull-left">{{ comment.author }}</div>
+                        <span class="date"><span class="fa fa-calendar mr-2"></span>{{ comment.added }}</span>
+                        {% autoescape off %}
+                            {{ comment.message }}
+                        {% endautoescape %}
+                        <a href="#" class="reply link-reply"><span class="fa fa-reply mr-2"></span>Ответить</a>
+                        <div id="form-reply-{{ comment.id }}"></div>
+                        <hr>
+                    </div>
+                </li>
+                {% endif %}
+                <li>
+                {% for subcomment in comments %}
+                    {% if subcomment.reply == comment  %}
+                        <ul class="comments-child">
+                            <li class="comment">
+                                <div class="ts-circle__sm float-left mr-4">
+                                    <div class="ts-img-into-bg">
+                                        <img
+                                                {% if subcomment.photo %}
+                                                    src="{{ subcomment.photo.url }}"
+                                                {% else %}
+                                                    src="{% static 'img/no-image-icon.png' %}"
+                                                {% endif %}
+                                                    alt="">
+                                    </div>
+                                </div>
+                                <div class="comment-wrapper" id="{{ subcomment.id }}">
+                                    <div class="name">{{ subcomment.author }}</div>
+                                    <span class="date"><span class="fa fa-calendar mr-2"></span>{{ subcomment.added }}</span>
+                                    {% autoescape off %}
+                                        {{ subcomment.message }}
+                                    {% endautoescape %}
+                                    <a href="#" class="reply link-reply"><span class="fa fa-reply mr-2"></span>Ответить</a>
+                                    <div id="form-reply-{{ subcomment.id }}"></div>
+                                    <hr>
+                                </div>
+                            </li>
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <div id="reply-form-common">
+    {% block leave-reply %}
+        {% include 'reply.html' %}
+    {% endblock leave-reply %}
+    </div>
+{% endblock comments %}

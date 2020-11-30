@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    {% block top %}
+        {% include 'logintop.html' %}
+    {% endblock %}
+
+    <p>Сеанс пользователя завершен!</p>
+
+    <a href="{% url 'login'%}">Нажмите тут для повторной авторизации.</a>
+
+{% endblock %}

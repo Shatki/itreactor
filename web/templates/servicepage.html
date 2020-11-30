@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{% block content %}
+	<!-- Page Top section -->
+    {% block top %}
+        {% include 'servive_top.html' %}
+    {% endblock %}
+	<!-- Page Top section end -->
+
+
+	<!-- Features section -->
+    {% block features %}
+	    {% include 'features.html' %}
+    {% endblock %}
+	<!-- Features section end -->
+
+
+	<!-- Service box section -->
+    {% block service %}
+        {% include 'service.html' %}
+    {% endblock %}
+	<!-- Service box section end -->
+
+
+	<!-- Faq section -->
+	{% block faq %}
+        {% include 'faq.html' %}
+    {% endblock %}
+	<!-- Faq section end -->
+{% endblock %}
