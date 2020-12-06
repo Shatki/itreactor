@@ -50,7 +50,7 @@ class User(AbstractUser):
     photo = models.ImageField(upload_to=PROFILE_PHOTOS_DIR, verbose_name=u'фото', blank=True, null=True,
                               default=PROFILE_PHOTO_DEFAULT_NAME)
     # Атрибут суперпользователя
-    is_admin = models.BooleanField(default=False, null=False)
+    # is_superuser = models.BooleanField(default=False, null=False)
     is_active = models.BooleanField(default=True)
 
     date_joined = models.DateTimeField(verbose_name=u'дата создания', auto_now_add=True)
@@ -74,7 +74,9 @@ class User(AbstractUser):
         return self.photo
 
     def get_full_name(self):
-        return u'%s %s' % (self.first_name, self.last_name)
+        if self.is_superuser:
+            return u'Админ'
+        return u'%s' % (self.first_name or self.email)
 
     def get_short_name(self):
         return self.first_name

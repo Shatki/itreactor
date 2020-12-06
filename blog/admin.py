@@ -1,10 +1,18 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from .models import Article, Comment
+from .models import Tips, Article, Comment
 
 
 # Register your models here.
+@admin.register(Tips)
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+    search_fields = ('name',)
+    ordering = ('name',)
+
+
 @admin.register(Article)
 class NewsAdmin(admin.ModelAdmin):
     list_display = ('title',

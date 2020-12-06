@@ -1,0 +1,11 @@
+{% block cloudtags %}
+    <div class="sb-widget">
+        <h2 class="sb-title">Тэги</h2>
+        <div class="sb-tag-widget">
+            <a href="{% url 'blog' %}" {% if not tag_id %} class="big-tag"{% endif %}>Все</a>
+            {% for tag in tags %}
+                <a href="{% url 'tag' tag.id %}" {% if tag.id == tag_id %}class="big-tag"{% endif %}>{{ tag.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

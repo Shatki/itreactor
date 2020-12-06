@@ -1,0 +1,18 @@
+{% load static %}
+
+{% block latestposts %}
+    <div class="sb-widget">
+        <h2 class="sb-title">Последние записи</h2>
+        <div class="sb-latest-post-widget">
+            {% for article_widget in articles_widget %}
+                <div class="lp-item">
+                    <div class="lp-thumb set-bg" data-setbg="{{ article_widget.thumb_url }}"></div>
+                    <div class="lp-content">
+                        <h6>{{ article_widget.title }}</h6>
+                        <span>{{ article_widget.date }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

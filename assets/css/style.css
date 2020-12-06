@@ -189,8 +189,53 @@ ol {
 	box-shadow: inset 0 0 0 2px #eb2b63;
 }
 
-/* Preloder */
+/* Кнопка возвращения наверх */
+div.scrollup {
+	display: none; /* не отображать элемент */
+	position: fixed; /* фиксированная позиция */
+	width: 47px;
+	height: 47px;
+	color: #2e1779; /* цвет текста */
+	background-color: #fff; /* цвет заднего фона */
+	right: 100px; /* расстояние от правого края */
+	bottom: 100px; /* расстояние от нижнего края */
+	font-size: 16px; /* размер шрифта (иконки) */
+	border-radius: 25px; /* скругление углов */
+	line-height: 46px;
+	text-align: center; /*выравнивание содержимого элемента по центру */
+	z-index: 10;
+	box-shadow: 0 1px 16px rgba(0,0,0,0.06);
+}
+div.scrollup:hover {
+	color: #fff;
+	background-color: #2e1779; /* цвет заднего фона при наведении */
+}
 
+/* Thumbnail */
+.thumbnail {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+}
+
+.thumbnail img {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 100%;
+	width: auto;
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+
+.thumbnail img.portrait {
+	width: 100%;
+	height: auto;
+}
+
+/* Preloder */
 #preloder {
 	position: fixed;
 	width: 100%;
@@ -1484,39 +1529,39 @@ ol {
 
 /* Split the screen in half */
 .split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
+	height: 100%;
+	width: 50%;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	overflow-x: hidden;
 }
 
 /* Control the left side */
 .left {
-  left: 0;
-  background-color: #fff;
+	left: 0;
+	background-color: #fff;
 }
 
 /* Control the right side */
 .right {
-  right: 0;
-  background-color: #2e1779;
+	right: 0;
+	background-color: #2e1779;
 }
 
 /* If you want the content centered horizontally and vertically */
 .centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
 }
 
 /* Style the image inside the centered container, if needed */
 .centered img {
-  width: 150px;
-  border-radius: 50%;
+	width: 150px;
+	border-radius: 50%;
 }
 
 

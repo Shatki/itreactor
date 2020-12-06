@@ -44,7 +44,7 @@ class UserChangeForm(forms.ModelForm):
         fields = (
             'email',
             'password',
-            'is_admin',
+            'is_superuser',
             'is_active',
         )
 

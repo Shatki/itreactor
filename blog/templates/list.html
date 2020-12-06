@@ -1,26 +1,9 @@
 {% extends 'index.html' %}
-{% load staticfiles %}
+{% load static %}
 
 {% block ts-content %}
     <div class="ts-content">
-        <!--HERO HEADER
-        ================================================================================================================
-        ================================================================================================================
-        -->
-        <header id="ts-hero" class="ts-block">
 
-            <div class="container pt-2 pt-sm-5 pt-lg-0">
-                <div class="ts-title mb-0">
-                    <h1>Новости</h1>
-                </div>
-            </div>
-
-        </header>
-
-        <!--MAIN CONTENT
-        ================================================================================================================
-        ================================================================================================================
-        -->
         <main id="ts-content">
 
             <!--News Listing
@@ -39,9 +22,9 @@
                                 <a href="#" class="blog-post-header-image">
                                     <div class="bg-transfer"><img src="{{ news.photo.url }}" alt=""></div>
                                 </a>
-                                <header><a href="{{ news.id  }}/"><h2>{{ news.title }}</h2></a></header>
+                                <header><a href="{% url 'detail' news.id %}"><h2>{{ news.title }}</h2></a></header>
                                 <figure class="meta">
-                                    <a href="#" class="link-icon"><i class="fa fa-user"></i> {{ news.author.get_full_name }}</a>
+                                    <a href="#" class="link-icon"><i class="fa fa-user"></i> {{ article.author.get_full_name }}</a>
                                     <a href="#" class="link-icon"><i class="fa fa-calendar"></i> {{ news.date }}</a>
                                     {% if news.fix %}
                                         <a href="#" class="link-icon"><i class="fa fa-lock"></i></a>
@@ -50,7 +33,7 @@
                                 {% autoescape off %}
                                     {{ news.text | truncatechars_html:400 }}
                                 {% endautoescape %}
-                                <a href="{{ news.id  }}/" class="btn btn-primary btn-small btn-grey">Читать полностью</a>
+                                <a href="{% url 'detail' news.id %}" class="btn btn-primary btn-small btn-grey">Читать полностью</a>
                             </article>
                             {% endfor %}
 

@@ -1,12 +1,27 @@
 {% extends 'index.html' %}
 
+{% load static %}
+
+{% block header %}
+{% endblock %}
+
 {% block content %}
     {% block top %}
-        {% include 'logintop.html' %}
     {% endblock %}
+    <div class="split left">
+        <div class="centered">
+            <h4>Сеанс пользователя завершен!</h4>
+            <div class="auth-text">
+                <p><a href="{% url 'login'%}">Нажмите тут чтобы авторизоватся</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="split right auth-text set-bg" data-setbg="{% static 'img/login-bg.jpg' %}">
+    </div>
+    <{% endblock %}
 
-    <p>Сеанс пользователя завершен!</p>
+{% block footertop %}
+{% endblock %}
 
-    <a href="{% url 'login'%}">Нажмите тут для повторной авторизации.</a>
-
+{% block footer %}
 {% endblock %}

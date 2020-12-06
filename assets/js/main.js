@@ -1,6 +1,5 @@
 /* =================================
-------------------------------------
-	ProDent - Dentist Template
+ ------------------------------------
 	Version: 1.0
  ------------------------------------
  ====================================*/
@@ -15,8 +14,8 @@ $(window).on('load', function() {
 	--------------------*/
 	$(".loader").fadeOut();
 	$("#preloder").delay(400).fadeOut("slow");
-
 });
+
 
 (function($) {
 	/*------------------
@@ -28,6 +27,32 @@ $(window).on('load', function() {
 		event.preventDefault();
 	});
 
+	$('.marker-glider').on("click", function(e) {
+		/*------------------
+            Плавный скролинг Home страницы
+        --------------------*/
+		e.preventDefault();
+		var id  = $(this).attr('href');
+		var top = $(id).offset().top; // получаем координаты блока
+		$('body, html').animate({scrollTop: top}, 1000); // плавно переходим к блоку
+	});
+
+	$('.scrollup').click(function() {
+		$('body, html').animate({scrollTop: 0}, 1000);
+	});
+
+	// при прокрутке окна (window)
+	$(window).scroll(function() {
+		// если пользователь прокрутил страницу более чем на 500px
+		if ($(this).scrollTop() > 500) {
+			// то сделать кнопку scrollup видимой
+			$('.scrollup').fadeIn();
+		}
+		// иначе скрыть кнопку scrollup
+		else {
+			$('.scrollup').fadeOut();
+		}
+	});
 
 	/*------------------
 		Background Set

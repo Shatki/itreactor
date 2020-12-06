@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('users/', include('django.contrib.auth.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('blog/', include('blog.urls')),
     path('', include('web.urls'))
     # ... the rest of your URLconf goes here ...
 ]

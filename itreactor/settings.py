@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     'blog',
     'web',
     'users',
+    #'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
@@ -136,12 +138,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 TEMPLATE_HOMEPAGE = 'homepage.html'
 TEMPLATE_ABOUT = 'aboutpage.html'
 TEMPLATE_SERVICE = 'servicepage.html'
-TEMPLATE_BLOG = 'blogpage.html'
+TEMPLATE_BLOG_LIST = 'blogpage.html'
+TEMPLATE_BLOG_DETAIL = 'article.html'
 TEMPLATE_CONTACT = 'contactpage.html'
 TEMPLATE_ELEMENTS = 'elementspage.html'
-
-TEMPLATE_BLOG_LIST = 'list.html'
-TEMPLATE_BLOG_DETAIL = 'detail.html'
 
 ARTICLE = u'article'
 
@@ -152,7 +152,7 @@ PROFILE_PHOTOS_DIR = 'photos/'
 HEADER_PHOTOS_DIR = 'headers/'
 GALLERY_PHOTOS_DIR = 'gallery/'
 AWARDS_PHOTOS_DIR = 'awards/'
-ARTICLE_PHOTOS_DIR = 'news/'
+ARTICLE_PHOTOS_DIR = 'articles/'
 DOCUMENTS_DIR = 'documents/'
 DOCUMENTS_MINIATURES_DIR = 'miniatures/'
 
@@ -194,7 +194,7 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-PAGINATION_NEWS_ON_PAGE = 3  # Количество новостей на странице
+PAGINATION_ARTICLES_ON_PAGE = 3  # Количество новостей на странице
 PAGINATION_LIST_RANGE = 3  # Число страниц отопбажаемых в строке пагинация между "Назад" и "Вперед"
 
 # Memcached
