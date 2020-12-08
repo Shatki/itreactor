@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <!-- Page Top section -->
+    {% block top %}
+        {% include 'blog_top.html' %}
+    {% endblock %}
+    <!-- Page Top section end -->
+
+    <!-- Blog posts section -->
+    {% block article %}
+        {% include 'article.html' %}
+    {% endblock %}
+{% endblock %}

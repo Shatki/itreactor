@@ -1,0 +1,30 @@
+{% load static %}
+
+{% block article %}
+    <section class="article-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 article-text">
+                    <div class="blog-post">
+                        <img src="{{ article.photo.url }}" alt="" class="post-thumb">
+                        <a href="{% url 'detail' article.id %}"><h4>{{ article.title }}</h4></a>
+                        <div class="post-metas">
+                            <div class="post-meta">{{ article.author.get_full_name }}</div>
+                            <div class="post-meta">{{ article.date }}</div>
+                        </div>
+                        {% autoescape off %}
+                            {{ article.text }}
+                        {% endautoescape %}
+                    </div>
+                    <!-- Comments section -->
+                    {% include 'comments.html' %}
+                    <!-- Comments top section end -->
+                </div>
+                <div class="col-lg-3">
+                    Тут пока пусто
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

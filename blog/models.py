@@ -46,6 +46,7 @@ class Article(models.Model):
     def save(self, *args, **kwargs):
         Article.objects.all().update(fix=False)
         super(Article, self).save(*args, **kwargs)
+        # Create a thumb
         im = Image.open(self.photo)
         im.thumbnail((200, 200))
         im.save("%s/%s%s" % (MEDIA_ROOT, ARTICLE_PHOTOS_DIR, self.thumb_name()))

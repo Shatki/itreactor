@@ -36,7 +36,7 @@ def comment(request, articles_id):
 
 
 @csrf_protect
-def blog_detail(request, articles_id):
+def blog_detail(request, article_id):
     context = {}
     context.update(csrf(request))
     if request.user.is_authenticated:
@@ -45,16 +45,14 @@ def blog_detail(request, articles_id):
         context[u'reply_email'] = auth.get_user(request).email
         context[u'photo'] = User.objects.get(is_superuser=True).photo
 
-    #context[u'menus'] = menus()
-    #context[u'menu_default'] = MENU_DEFAULT
     context[u'result'] = True
-    articles = []
+    article = []
     try:
-        articles = Article.objects.get(id=articles_id)
+        article = Article.objects.get(id=article_id)
     except Article.DoesNotExist:
         context[u'result'] = False
-    context[u'articles'] = articles
-    _comments = Comment.objects.filter(articles_id=articles_id, allowed=True)
+    context[u'article'] = article
+    _comments = Comment.objects.filter(article_id=article_id, allowed=True)
     # добавка чтобы реплика была адресно
     for _comment in _comments:
         if _comment.reply:
@@ -62,6 +60,7 @@ def blog_detail(request, articles_id):
                                % (_comment.message[:3], _comment.reply.id, _comment.reply.author, _comment.message[3:])
 
     context[u'comments'] = _comments
+    context[u'article_id'] = article_id
     return render(request, TEMPLATE_BLOG_DETAIL, context)
 
 

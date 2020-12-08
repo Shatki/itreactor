@@ -139,7 +139,7 @@ TEMPLATE_HOMEPAGE = 'homepage.html'
 TEMPLATE_ABOUT = 'aboutpage.html'
 TEMPLATE_SERVICE = 'servicepage.html'
 TEMPLATE_BLOG_LIST = 'blogpage.html'
-TEMPLATE_BLOG_DETAIL = 'article.html'
+TEMPLATE_BLOG_DETAIL = 'articlepage.html'
 TEMPLATE_CONTACT = 'contactpage.html'
 TEMPLATE_ELEMENTS = 'elementspage.html'
 

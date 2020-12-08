@@ -423,7 +423,6 @@ div.scrollup:hover {
 }
 
 .tab-element .nav-tabs .nav-link {
-	border-radius: 0;
 	font-size: 15px;
 	color: #fff;
 	font-weight: 500;
@@ -1272,6 +1271,53 @@ div.scrollup:hover {
 /* ----------------
   Blog Page
 ---------------------*/
+.article-section {
+	padding-top: 100px;
+}
+
+.article-text h4 {
+	margin-top: 30px;
+}
+
+.article-text p {
+	margin-bottom: 40px;
+}
+
+.article-info {
+	display: block;
+	margin-bottom: 25px;
+	width: 36px;
+	float: left;
+}
+
+.article-info span {
+	font-size: 16px;
+	color: #1c1c1c;
+	display: block;
+	overflow: hidden;
+}
+
+.article-form {
+	padding-top: 64px;
+}
+
+.article-form input[type=text],
+.article-form input[type=email],
+.article-form textarea {
+	width: 100%;
+	height: 56px;
+	border: none;
+	padding: 0 29px;
+	background: #eff4f7;
+	border-radius: 4px;
+	margin-bottom: 21px;
+}
+
+.article-form textarea {
+	padding: 23px 29px;
+	height: 195px;
+}
+
 
 .blog-post {
 	margin-bottom: 70px;

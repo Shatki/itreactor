@@ -1,39 +1,22 @@
-{% load staticfiles %}
+{% load static %}
 
 {% block leave-reply %}
-    <section id="leave-reply" class="py-5">
-        <header id="leave-reply-header-text"><h3 class="no-border">Оставить комментарий</h3></header>
-        <form id="form-news-reply" method="post" class="clearfix ts-form ts-form-comment" data-path="comment/">
+    <section class="section-reply">
+        <h4 class="article-text">Оставить комментарий</h4>
+        <form method="post" class="article-form" data-path="{% url 'comment' article_id %}">
             {% csrf_token %}
-            <input type="hidden" id="form-news-reply-comment" name="form-news-reply-comment" value="">
+            <input type="hidden" id="form-article-reply-comment" name="form-article-reply-comment" value="">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="form-news-reply-name">Ваше имя<em>*</em></label>
-                        <input type="text" class="form-reply form-control" id="form-news-reply-name" name="form-news-reply-name" value="{{ reply_name }}" required>
-                    </div>
+                    <input type="text" placeholder="Ваше имя" name="form-article-reply-name" value="{{ reply_name }}" required>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="form-news-reply-email">Ваш e-mail<em>*</em></label>
-                        <input type="email" class="form-reply form-control" id="form-news-reply-email" name="form-news-reply-email" value="{{ reply_email }}" required>
-                    </div>
+                    <input type="text" placeholder="Ваш e-mail" name="form-article-reply-email" value="{{ reply_email }}" required>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="form-news-reply-message">Ваше сообщение<em>*</em></label>
-                        <textarea class="form-reply form-control" id="form-news-reply-message" rows="5" name="form-news-reply-message" required></textarea>
-                    </div>
+                    <textarea placeholder="Сообщение" name="form-news-reply-message" required></textarea>
+                    <button class="site-btn">Отправить</button>
                 </div>
-            </div>
-            <div class="form-group clearfix">
-                <button type="submit" class="btn btn-primary" id="form-news-reply-submit">Отправить</button>
-                <button type="reset" class="btn btn-outline-primary" id="form-news-cancel-reply-to">Отмена</button>
-            </div>
-            <div id="form-rating-status">
-
             </div>
         </form>
     </section>
