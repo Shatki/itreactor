@@ -71,7 +71,8 @@ class UserAdmin(BaseUserAdmin):
                 ('wide',),
             'fields': (
                 'email',
-                'password',
+                'password1',
+                'password2',
                 'is_superuser',
             )
         }),

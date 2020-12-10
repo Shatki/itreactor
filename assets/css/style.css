@@ -1561,6 +1561,16 @@ div.scrollup:hover {
 
 .auth-form {
 	padding-top: 64px;
+	text-align: left;
+}
+
+.auth-form ul, span{
+	font-size: 14px;
+	color: #585858;
+}
+
+.auth-form label{
+	color: #1c1c1c;
 }
 
 .auth-form input {
@@ -1609,8 +1619,6 @@ div.scrollup:hover {
 	width: 150px;
 	border-radius: 50%;
 }
-
-
 
 /* ----------------
   Responsive

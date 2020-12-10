@@ -1,7 +1,9 @@
 from django import forms
 from .models import User
+from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.contrib.auth import get_user_model
 
 
 class UserCreationForm(forms.ModelForm):
@@ -12,8 +14,8 @@ class UserCreationForm(forms.ModelForm):
         model = User
         fields = (
             'email',
-            'first_name',
-            'last_name',
+            #'first_name',
+            #'last_name',
         )
         readonly_fields = (
             'date_joined',
@@ -24,7 +26,7 @@ class UserCreationForm(forms.ModelForm):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
-            raise ValidationError("Пароли не совпадают!")
+            raise ValidationError(_("passwords are different!"), code='invalid')
         return password2
 
     def save(self, commit=True):

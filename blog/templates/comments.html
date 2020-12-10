@@ -4,12 +4,12 @@
     <section class="comments">
         <hr>
         <header><h3>Комментарии</h3></header>
-        <ul class="comments list-unstyled">
+        <ul class="comments article-text">
             {% for comment in comments %}
                 {% if not comment.reply %}
                     <li class="comment">
-                    <div class="ts-circle__sm float-left mr-4">
-                        <div class="ts-img-into-bg">
+                    <div class="article-info">
+                        <div class="">
                             <img
                                     {% if comment.photo %}
                                         src="{{ comment.photo.url }}"
@@ -19,7 +19,7 @@
                                         alt="">
                         </div>
                     </div>
-                    <div class="comment-wrapper" id="{{ comment.id }}">
+                    <div class="article-form" id="{{ comment.id }}">
                         <div class="name pull-left">{{ comment.author }}</div>
                         <span class="date"><span class="fa fa-calendar mr-2"></span>{{ comment.added }}</span>
                         {% autoescape off %}
