@@ -3,13 +3,13 @@
 {% block comments %}
     <section class="comments">
         <hr>
-        <header><h3>Комментарии</h3></header>
-        <ul class="comments article-text">
+        <header><h4>Комментарии</h4></header>
+        <ul class="article-text">
             {% for comment in comments %}
                 {% if not comment.reply %}
                     <li class="comment">
-                    <div class="article-info">
-                        <div class="">
+                    <div class="circle_sm article-info mr-4">
+                        <div class="set-img-into-bg">
                             <img
                                     {% if comment.photo %}
                                         src="{{ comment.photo.url }}"
@@ -19,9 +19,11 @@
                                         alt="">
                         </div>
                     </div>
-                    <div class="article-form" id="{{ comment.id }}">
-                        <div class="name pull-left">{{ comment.author }}</div>
-                        <span class="date"><span class="fa fa-calendar mr-2"></span>{{ comment.added }}</span>
+                    <div class="comment-wrapper" id="{{ comment.id }}">
+                        <div class="post-metas">
+                            <div class="post-meta"><span class="fa fa-calendar mr-2"></span>{{ comment.added }}</div>
+                            <div class="post-meta">{{ comment.author }}</div>
+                        </div>
                         {% autoescape off %}
                             {{ comment.message }}
                         {% endautoescape %}

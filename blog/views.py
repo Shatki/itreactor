@@ -17,21 +17,20 @@ from django.template.context_processors import csrf
 
 
 @csrf_protect
-def comment(request, articles_id):
+def comment(request, article_id):
     response = True
 
     articles = Comment.objects.create(
-            author=request.POST[u'form-articles-reply-name'],
-            email=request.POST[u'form-articles-reply-email'],
-            articles_id=articles_id,
-            message=u'<p>%s</p>' % request.POST[u'form-articles-reply-message'],
+            author=request.POST[u'form-article-reply-name'],
+            email=request.POST[u'form-article-reply-email'],
+            article_id=article_id,
+            message=u'<p>%s</p>' % request.POST[u'form-article-reply-message'],
         )
     try:
-        articles.reply_id = request.POST[u'form-articles-reply-comment']
+        articles.reply_id = request.POST[u'form-article-reply-comment']
     except articles.DoesNotExist:
         articles.reply_id = None
     articles.save()
-
     return JsonResponse(response, safe=False)
 
 
