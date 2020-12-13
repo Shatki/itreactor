@@ -97,9 +97,11 @@ def blog_list(request, tag_id=None, page=None):
     if request.user.is_authenticated:
         context['username'] = auth.get_user(request).username
         context['profile'] = auth.get_user(request).photo
-        context['tags'] = Tips.objects.all()
-        context['tag_id'] = int(tag_id) if tag_id else None
+
+    context['tags'] = Tips.objects.all()
+    context['tag_id'] = int(tag_id) if tag_id else None
     context['result'] = True
     context['articles_list'] = articles_list
+    context['comments'] = Comment.objects.all()
     context['articles_widget'] = Article.objects.all()[:3]
     return render(request, TEMPLATE_BLOG_LIST, context)

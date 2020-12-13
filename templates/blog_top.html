@@ -1,11 +1,16 @@
 {% load static %}
 
 {% block top %}
-    <section class="page-top-section set-bg" data-setbg="{% static 'img/page-top-bg.jpg' %}">
+    <section class="page-top-section set-bg" data-setbg="{% static 'img/page-top-bg.jpg' %}"
+             xmlns="http://www.w3.org/1999/html">
         <div class="container">
             <h2>Блог</h2>
             <div class="site-breadcrumb">
-                <a href="/">Начало</a> / <span>Блог</span>
+                {% if articles_list.has_next %}
+                   <a href="/">Начало</a> / <a href="{% url 'blog' %}">Блог</a> / <span>{{ articles_list.number }}</span>
+                {% else %}
+                    <a href="/">Начало</a> / <span>Блог</span>
+                {% endif %}
             </div>
         </div>
     </section>

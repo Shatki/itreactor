@@ -5,6 +5,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
+                    {% if not articles %}
+                        Тут пока еще никто ничего не написал
+                    {% endif %}
                     {% for article in articles_list %}
                         <div class="blog-post">
                             <img src="{{ article.photo.url }}" alt="" class="post-thumb">
@@ -13,7 +16,7 @@
                             <div class="post-metas">
                                 <div class="post-meta">{{ article.author.get_full_name }}</div>
                                 <div class="post-meta">{{ article.view_tips }}</div>
-                                <div class="post-meta">3 comments</div>
+                                <div class="post-meta">{{ article.count_comments }} комментарий</div>
                             </div>
                             {% autoescape off %}
                                 {{ article.text | truncatechars_html:400 }}

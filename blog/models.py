@@ -78,6 +78,9 @@ class Article(models.Model):
     def view_tips(self):
         return ', '.join([str(i) for i in self.tips.all()])
 
+    def count_comments(self):
+        return Comment.objects.filter(article=self).count()
+
     def clean_fields(self, exclude=None):
         # todo: Нужно доработать
         super().clean_fields(exclude=exclude)

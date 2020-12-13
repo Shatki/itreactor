@@ -8,69 +8,67 @@
             {% for comment in comments %}
                 {% if not comment.reply %}
                     <li class="comment">
-                    <div class="circle_sm article-info mr-4">
-                        <div class="set-img-into-bg">
+                        <div class="article-info mr-4">
+                            <div class="profile">
                             <img
                                     {% if comment.photo %}
                                         src="{{ comment.photo.url }}"
                                     {% else %}
                                         src="{% static 'img/no-image-icon.png' %}"
                                     {% endif %}
-                                        alt="">
+                                        alt="Изображение профиля">
                         </div>
-                    </div>
-                    <div class="comment-wrapper" id="{{ comment.id }}">
-                        <div class="post-metas">
-                            <div class="post-meta"><span class="fa fa-calendar mr-2"></span>{{ comment.added }}</div>
-                            <div class="post-meta">{{ comment.author }}</div>
                         </div>
-                        {% autoescape off %}
-                            {{ comment.message }}
-                        {% endautoescape %}
-                        <a href="#" class="reply link-reply"><span class="fa fa-reply mr-2"></span>Ответить</a>
-                        <div id="form-reply-{{ comment.id }}"></div>
-                        <hr>
-                    </div>
-                </li>
+                        <div class="comment-wrapper" id="{{ comment.id }}">
+                            <div class="name">{{ comment.author }}</div>
+                            <div class="date"><span class="fa fa-calendar mr-2"></span>{{ comment.added }}</div>
+                            {% autoescape off %}
+                                {{ comment.message }}
+                            {% endautoescape %}
+                            <a href="#" class="reply link-reply"><span class="fa fa-reply mr-2"></span>Ответить</a>
+                            <div id="form-reply-{{ comment.id }}"></div>
+                            <hr>
+                        </div>
+                    </li>
+                    <li class="subcomments">
+                        {% for subcomment in comments %}
+                            {% if subcomment.reply == comment or subcomment.reply.reply == comment  %}
+                                <ul class="comments-child">
+                                    <li class="comment">
+                                        <div class="float-left mr-4">
+                                            <div class="profile">
+                                                <img
+                                                        {% if subcomment.photo %}
+                                                            src="{{ subcomment.photo.url }}"
+                                                        {% else %}
+                                                            src="{% static 'img/no-image-icon.png' %}"
+                                                        {% endif %}
+                                                            alt="Изображение профиля">
+                                            </div>
+                                        </div>
+                                        <div class="comment-wrapper" id="{{ subcomment.id }}">
+                                            <div class="name">{{ subcomment.author }}</div>
+                                            <span class="date"><span class="fa fa-calendar mr-2"></span>{{ subcomment.added }}</span>
+                                            {% autoescape off %}
+                                                {{ subcomment.message }}
+                                            {% endautoescape %}
+                                            <a href="#" class="reply link-reply"><span class="fa fa-reply mr-2"></span>Ответить</a>
+                                            <div id="form-reply-{{ subcomment.id }}"></div>
+                                            <hr>
+                                        </div>
+                                    </li>
+                                </ul>
+                            {% endif %}
+                        {% endfor %}
+                    </li>
                 {% endif %}
-                <li>
-                {% for subcomment in comments %}
-                    {% if subcomment.reply == comment  %}
-                        <ul class="comments-child">
-                            <li class="comment">
-                                <div class="ts-circle__sm float-left mr-4">
-                                    <div class="ts-img-into-bg">
-                                        <img
-                                                {% if subcomment.photo %}
-                                                    src="{{ subcomment.photo.url }}"
-                                                {% else %}
-                                                    src="{% static 'img/no-image-icon.png' %}"
-                                                {% endif %}
-                                                    alt="">
-                                    </div>
-                                </div>
-                                <div class="comment-wrapper" id="{{ subcomment.id }}">
-                                    <div class="name">{{ subcomment.author }}</div>
-                                    <span class="date"><span class="fa fa-calendar mr-2"></span>{{ subcomment.added }}</span>
-                                    {% autoescape off %}
-                                        {{ subcomment.message }}
-                                    {% endautoescape %}
-                                    <a href="#" class="reply link-reply"><span class="fa fa-reply mr-2"></span>Ответить</a>
-                                    <div id="form-reply-{{ subcomment.id }}"></div>
-                                    <hr>
-                                </div>
-                            </li>
-                        </ul>
-                    {% endif %}
-                {% endfor %}
-                </li>
             {% endfor %}
         </ul>
     </section>
 
-    <div id="reply-form-common">
-    {% block leave-reply %}
-        {% include 'reply.html' %}
-    {% endblock leave-reply %}
+    <div class="form-reply-primary">
+        {% block leave-reply %}
+            {% include 'reply.html' %}
+        {% endblock leave-reply %}
     </div>
 {% endblock comments %}

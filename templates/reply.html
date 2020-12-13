@@ -2,10 +2,10 @@
 
 {% block leave-reply %}
     <section class="section-reply">
-        <h4 class="article-text">Оставить комментарий</h4>
-        <form method="post" class="article-form" action="{% url 'comment' article_id %}">
+        <h4 class="comment-text">Оставить комментарий</h4>
+        <form class="comment-form" method="post"  data-path="{% url 'comment' article_id %}">
             {% csrf_token %}
-            <input type="hidden" id="form-article-reply-comment" name="form-article-reply-comment" value="">
+            <input type="hidden" class="reply-comment" name="form-article-reply-comment" value="">
             <div class="row">
                 <div class="col-md-6">
                     <input type="text" placeholder="Ваше имя" name="form-article-reply-name" value="{{ reply_name }}" required>
@@ -15,8 +15,11 @@
                 </div>
                 <div class="col-md-12">
                     <textarea placeholder="Сообщение" name="form-article-reply-message" required></textarea>
-                    <button class="site-btn">Отправить</button>
                 </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="site-btn submit-reply">Отправить</button>
+                <button type="reset" class="site-btn sb-line btn-other cancel-reply">Отмена</button>
             </div>
         </form>
     </section>

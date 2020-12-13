@@ -41,30 +41,7 @@
                 </div>
                 <div class="col-lg-4  col-md-6">
                     <div class="footer-widget">
-                        <h4 class="fw-title">Последние статьи</h4>
-                        <div class="fw-latest-post-widget">
-                            <div class="lp-item">
-                                <div class="lp-thumb set-bg" data-setbg="{% static 'img/footer-thumb/1.jpg' %}"></div>
-                                <div class="lp-content">
-                                    <h6>Web Hosting for everyone</h6>
-                                    <span>Oct 21, 2018</span>
-                                </div>
-                            </div>
-                            <div class="lp-item">
-                                <div class="lp-thumb set-bg" data-setbg="{% static 'img/footer-thumb/2.jpg' %}"></div>
-                                <div class="lp-content">
-                                    <h6>Web Hosting for everyone</h6>
-                                    <span>Oct 21, 2018</span>
-                                </div>
-                            </div>
-                            <div class="lp-item">
-                                <div class="lp-thumb set-bg" data-setbg="{% static 'img/footer-thumb/3.jpg' %}"></div>
-                                <div class="lp-content">
-                                    <h6>Web Hosting for everyone</h6>
-                                    <span>Oct 21, 2018</span>
-                                </div>
-                            </div>
-                        </div>
+                        {% include 'widgets/latestsposts.html' %}
                     </div>
                 </div>
             </div>
