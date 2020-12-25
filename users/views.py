@@ -41,6 +41,9 @@ def feedback(request):
     )
     message.save()
     # Отправка письм
-    user = User.objects.get(is_superuser=True)
-    user.send_email(name=message.name, from_email=message.email, subject=message.subject, message=message.message)
+    try:
+        user = User.objects.get(is_superuser=True)
+        user.send_email(name=message.name, from_email=message.email, subject=message.subject, message=message.message)
+    except:
+        print('User.view.feedback: Не могу отправить письмо!')
     return JsonResponse(True, safe=False)

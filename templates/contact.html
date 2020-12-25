@@ -27,18 +27,19 @@
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<form class="contact-form">
+					<form class="contact-form" data-path="feedback/">
+                        {%  csrf_token %}
 						<div class="row">
 							<div class="col-md-6">
-								<input type="text" placeholder="Ваше имя">
+								<input type="text" name="name" placeholder="Ваше имя" required>
 							</div>
 							<div class="col-md-6">
-								<input type="text" placeholder="Ваш e-mail">
+								<input type="text" name="email" placeholder="Ваш e-mail" required>
 							</div>
 							<div class="col-md-12">
-								<input type="text" placeholder="Тема">
-								<textarea placeholder="Сообщение"></textarea>
-								<button class="site-btn">Send</button>
+								<input type="text" name = "subject" placeholder="Тема" required>
+								<textarea name = "message" placeholder="Сообщение" required></textarea>
+								<button type="submit" class="site-btn">Отправить</button>
 							</div>
 						</div>
 					</form>

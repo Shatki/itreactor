@@ -103,5 +103,10 @@ def blog_list(request, tag_id=None, page=None):
     context['result'] = True
     context['articles_list'] = articles_list
     context['comments'] = Comment.objects.all()
-    context['articles_widget'] = Article.objects.all()[:3]
+    context.update(lastpost_widget())
     return render(request, TEMPLATE_BLOG_LIST, context)
+
+
+def lastpost_widget():
+    # для виджета, подборка последних 3-х статей
+    return {'articles_widget': Article.objects.all()[:3]}

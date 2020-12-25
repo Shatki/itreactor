@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_protect
 from itreactor.settings import TEMPLATE_HOMEPAGE, TEMPLATE_ABOUT, TEMPLATE_SERVICE, TEMPLATE_CONTACT, TEMPLATE_ELEMENTS
+from blog.views import lastpost_widget
 
 
 # Create your views here.
@@ -9,6 +10,7 @@ from itreactor.settings import TEMPLATE_HOMEPAGE, TEMPLATE_ABOUT, TEMPLATE_SERVI
 def home(request):
     context = {}
     context.update(csrf(request))
+    context.update(lastpost_widget())
     return render(request, TEMPLATE_HOMEPAGE, context)
 
 
@@ -16,6 +18,7 @@ def home(request):
 def about(request):
     context = {}
     context.update(csrf(request))
+    context.update(lastpost_widget())
     return render(request, TEMPLATE_ABOUT, context)
 
 
@@ -23,6 +26,7 @@ def about(request):
 def service(request):
     context = {}
     context.update(csrf(request))
+    context.update(lastpost_widget())
     return render(request, TEMPLATE_SERVICE, context)
 
 
@@ -30,5 +34,6 @@ def service(request):
 def contact(request):
     context = {}
     context.update(csrf(request))
+    context.update(lastpost_widget())
     return render(request, TEMPLATE_CONTACT, context)
 

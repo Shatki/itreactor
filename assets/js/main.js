@@ -202,7 +202,8 @@ $(function() {
 		$(this).html("").append("<span>"+ text +"</span>").prepend("<div class='status'><i class='fas fa-circle-notch fa-spin spinner'></i></div>");
 	});
 
-	$(".form-email .site-btn[type='submit']").on("click", function(e){
+	// Реакция на отправки контактной формы
+	$(".contact-form .site-btn[type='submit']").on("click", function(e){
 		let $button = $(this);
 		let $form = $(this).closest("form");
 		let path = $(this).closest("form").attr("data-path");
@@ -222,11 +223,14 @@ $(function() {
 						});
 						$button.addClass("done").removeClass('processing').
 						prop("disabled", true);
+						// Пассивный антиспам
 						return false;
 					}else{
+						alert("!");
 						// Не отправляется
-						$button.addClass("done").
+						$button.addClass("done").removeClass('processing').
 						prop("disabled", true);
+						// Пассивный антиспам
 					}
 				});
 				return false;

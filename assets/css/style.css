@@ -91,6 +91,7 @@ ol {
 }
 
 .section-title img {
+	width: auto;
 	margin-bottom: 5px;
 }
 
@@ -250,7 +251,6 @@ div.scrollup:hover {
 }
 
 .thumbnail img.portrait {
-	width: 100%;
 	height: auto;
 }
 
@@ -1564,7 +1564,7 @@ div.scrollup:hover {
 }
 
 .cont-info .ci-icon {
-	width: 36px;
+	margin-right: 25px;
 	float: left;
 }
 

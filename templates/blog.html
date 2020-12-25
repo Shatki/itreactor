@@ -5,52 +5,61 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
-                    {% if not articles %}
-                        Тут пока еще никто ничего не написал
-                    {% endif %}
-                    {% for article in articles_list %}
-                        <div class="blog-post">
-                            <img src="{{ article.photo.url }}" alt="" class="post-thumb">
-                            <div class="post-date">{{ article.date }}</div>
-                            <a href="{% url 'detail' article.id %}"><h4>{{ article.title }}</h4></a>
-                            <div class="post-metas">
-                                <div class="post-meta">{{ article.author.get_full_name }}</div>
-                                <div class="post-meta">{{ article.view_tips }}</div>
-                                <div class="post-meta">{{ article.count_comments }} комментарий</div>
+                    {% if not articles_list %}
+                        {% if tag_id %}
+                            {%  for tag in tags %}
+                                {% if tag.id == tag_id %}
+                                    На тему "{{ tag }}" статей не обнаружено
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            Тут пока никто ничего не написал
+                        {% endif %}
+                    {% else %}
+                        {% for article in articles_list %}
+                            <div class="blog-post">
+                                <img src="{{ article.photo.url }}" alt="" class="post-thumb">
+                                <div class="post-date">{{ article.date }}</div>
+                                <a href="{% url 'detail' article.id %}"><h4>{{ article.title }}</h4></a>
+                                <div class="post-metas">
+                                    <div class="post-meta">{{ article.author.get_full_name }}</div>
+                                    <div class="post-meta">{{ article.view_tips }}</div>
+                                    <div class="post-meta">{{ article.count_comments }} комментарий</div>
+                                </div>
+                                {% autoescape off %}
+                                    {{ article.text | truncatechars_html:400 }}
+                                {% endautoescape %}
                             </div>
-                            {% autoescape off %}
-                                {{ article.text | truncatechars_html:400 }}
-                            {% endautoescape %}
-                        </div>
-                    {% endfor %}
-                    <div class="site-pagination">
-                        <a {% if articles_list.has_previous %}
-                            {% if tag_id %}
-                                href="{% url 'tag_pagination' tag_id articles_list.previous_page_number %}"
-                            {% else %}
-                                href="{% url 'pagination' articles_list.previous_page_number %}"
-                            {% endif %}
-                        {% endif %}><</a>
-
-                        {% for page in articles_list.list_range %}
-                            <a {% if page == articles_list.number %}class='active'{% endif %}
-                                    {% if tag_id %}
-                               href="{% url 'tag_pagination' tag_id page %}">{{ page }}
-                                    {% else %}
-                               href="{% url 'pagination' page %}">{{ page }}
-                                    {% endif %}
-                            </a>
                         {% endfor %}
+                        <div class="site-pagination">
+                            <a {% if articles_list.has_previous %}
+                                {% if tag_id %}
+                                    href="{% url 'tag_pagination' tag_id articles_list.previous_page_number %}"
+                                {% else %}
+                                    href="{% url 'pagination' articles_list.previous_page_number %}"
+                                {% endif %}
+                            {% endif %}><</a>
 
-                        <a {% if articles_list.has_next %}
-                            {% if tag_id %}
-                                href="{% url 'tag_pagination' tag_id articles_list.next_page_number %}"
-                            {% else %}
-                                href="{% url 'pagination' articles_list.next_page_number %}"
-                            {% endif %}
-                        {% endif %}>></a>
+                            {% for page in articles_list.list_range %}
+                                <a {% if page == articles_list.number %}class='active'{% endif %}
+                                        {% if tag_id %}
+                                   href="{% url 'tag_pagination' tag_id page %}">{{ page }}
+                                        {% else %}
+                                            href="{% url 'pagination' page %}">{{ page }}
+                                        {% endif %}
+                                </a>
+                            {% endfor %}
 
-                    </div>
+                            <a {% if articles_list.has_next %}
+                                {% if tag_id %}
+                                    href="{% url 'tag_pagination' tag_id articles_list.next_page_number %}"
+                                {% else %}
+                                    href="{% url 'pagination' articles_list.next_page_number %}"
+                                {% endif %}
+                            {% endif %}>></a>
+
+                        </div>
+                    {% endif %}
                 </div>
                 <!-- sidebar -->
                 <div class="col-lg-3 col-md-5 col-sm-8 sidebar">
