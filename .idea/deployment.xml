@@ -8,8 +8,9 @@
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
           <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/resource" />
             <excludedPath local="true" path="$PROJECT_DIR$/env" />
+            <excludedPath local="true" path="$PROJECT_DIR$/itreactor/local.py" />
+            <excludedPath local="true" path="$PROJECT_DIR$/resource" />
           </excludedPaths>
         </serverdata>
       </paths>

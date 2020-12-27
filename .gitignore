@@ -1,2 +1,4 @@
 /env/
 /resource/ithost/
+/itreactor/production.py
+/itreactor/local.py
