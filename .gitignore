@@ -1,5 +1,5 @@
 /env/
 /resource/ithost/
-/itreactor/itreactor/production.py
-/itreactor/itreactor/local.py
-/itreactor/itreactor/private.py
+/itreactor/production.py
+/itreactor/local.py
+/itreactor/private.py
