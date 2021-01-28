@@ -6,24 +6,24 @@
 			<div class="row">
 				<div class="col-lg-3 contact-text">
 					<h4>Контактная информация</h4>
-					<p>Nullam lacinia ex eleifend orci portt-itor, suscipit interdum augue condi-mentum. Etiam pretium turpis eget nibh laoreet iaculis. Vivamus auctor mi eget odio feugiat.</p>
+					<p>{{ website.contact_text }}.</p>
 					<div class="cont-info">
 						<div class="ci-icon">
 							<img src="{% static 'img/icons/1.png' %}" alt="">
 						</div>
-						<span>Шатки, Центральная 9</span>
+						<span>{{ website.contact_address }}</span>
 					</div>
 					<div class="cont-info">
 						<div class="ci-icon">
 							<img src="{% static 'img/icons/2.png' %}" alt="">
 						</div>
-						<span>+7(920)024-74-77</span>
+						<span>{{ website.contact_phone }}</span>
 					</div>
 					<div class="cont-info">
 						<div class="ci-icon">
-							<img src="{% static 'img/icons/2.png' %}" alt="">
+							<img src="{% static 'img/icons/3.png' %}" alt="">
 						</div>
-						<span>admin@itreactor.ru</span>
+						<span>{{ website.contact_email }}</span>
 					</div>
 				</div>
 				<div class="col-lg-9">

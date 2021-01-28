@@ -1,15 +1,15 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 22/06/2016 15:31
+  	Creation date: 19/02/2016 14:48
   	*/
 
 @font-face {
   font-family: "Flaticon";
-  src: url("../icon-fonts/Flaticon.eot");
-  src: url("../icon-fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
-       url("../icon-fonts/Flaticon.woff") format("woff"),
-       url("../icon-fonts/Flaticon.ttf") format("truetype"),
-       url("../icon-fonts/Flaticon.svg#Flaticon") format("svg");
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -17,63 +17,145 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "Flaticon";
-    src: url("../icon-fonts/Flaticon.svg#Flaticon") format("svg");
+    src: url("./Flaticon.svg#Flaticon") format("svg");
   }
 }
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
   font-family: Flaticon;
-  font-style: normal;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
 }
 
-.flaticon-analytics:before { content: "\f100"; }
-.flaticon-backup:before { content: "\f101"; }
-.flaticon-blogging:before { content: "\f102"; }
-.flaticon-browser:before { content: "\f103"; }
-.flaticon-browser-1:before { content: "\f104"; }
-.flaticon-browser-2:before { content: "\f105"; }
-.flaticon-bug:before { content: "\f106"; }
-.flaticon-cloud-computing:before { content: "\f107"; }
-.flaticon-coding:before { content: "\f108"; }
-.flaticon-customer:before { content: "\f109"; }
-.flaticon-design:before { content: "\f10a"; }
-.flaticon-devices:before { content: "\f10b"; }
-.flaticon-domain-registration:before { content: "\f10c"; }
-.flaticon-email:before { content: "\f10d"; }
-.flaticon-folder:before { content: "\f10e"; }
-.flaticon-funnel:before { content: "\f10f"; }
-.flaticon-idea:before { content: "\f110"; }
-.flaticon-image:before { content: "\f111"; }
-.flaticon-keywords:before { content: "\f112"; }
-.flaticon-link:before { content: "\f113"; }
-.flaticon-map:before { content: "\f114"; }
-.flaticon-monitoring:before { content: "\f115"; }
-.flaticon-music:before { content: "\f116"; }
-.flaticon-newspaper:before { content: "\f117"; }
-.flaticon-online-shop:before { content: "\f118"; }
-.flaticon-pay-per-click:before { content: "\f119"; }
-.flaticon-quality:before { content: "\f11a"; }
-.flaticon-ranking:before { content: "\f11b"; }
-.flaticon-screen:before { content: "\f11c"; }
-.flaticon-search:before { content: "\f11d"; }
-.flaticon-search-1:before { content: "\f11e"; }
-.flaticon-search-engine:before { content: "\f11f"; }
-.flaticon-search-engine-1:before { content: "\f120"; }
-.flaticon-server:before { content: "\f121"; }
-.flaticon-shared-folder:before { content: "\f122"; }
-.flaticon-sharing-archives:before { content: "\f123"; }
-.flaticon-shield:before { content: "\f124"; }
-.flaticon-sitemap:before { content: "\f125"; }
-.flaticon-smartphone:before { content: "\f126"; }
-.flaticon-social-media:before { content: "\f127"; }
-.flaticon-speech-bubbles:before { content: "\f128"; }
-.flaticon-speedometer:before { content: "\f129"; }
-.flaticon-stats:before { content: "\f12a"; }
-.flaticon-tags:before { content: "\f12b"; }
-.flaticon-target:before { content: "\f12c"; }
-.flaticon-targeting:before { content: "\f12d"; }
-.flaticon-translation:before { content: "\f12e"; }
-.flaticon-typewriter:before { content: "\f12f"; }
-.flaticon-video:before { content: "\f130"; }
-.flaticon-viral-marketing:before { content: "\f131"; }
+.flaticon-adwords-announce:before { content: "\f100"; }
+.flaticon-affiliate-marketing:before { content: "\f101"; }
+.flaticon-analysing:before { content: "\f102"; }
+.flaticon-analytic-report:before { content: "\f103"; }
+.flaticon-analytical-chart:before { content: "\f104"; }
+.flaticon-anchor:before { content: "\f105"; }
+.flaticon-arrow-on-the-target:before { content: "\f106"; }
+.flaticon-autorship:before { content: "\f107"; }
+.flaticon-black-homburg-hat:before { content: "\f108"; }
+.flaticon-blogger:before { content: "\f109"; }
+.flaticon-bottleneck:before { content: "\f10a"; }
+.flaticon-brainstorm:before { content: "\f10b"; }
+.flaticon-bug-fixed:before { content: "\f10c"; }
+.flaticon-business-presentation:before { content: "\f10d"; }
+.flaticon-calculator:before { content: "\f10e"; }
+.flaticon-calendar:before { content: "\f10f"; }
+.flaticon-chain-links:before { content: "\f110"; }
+.flaticon-cloud-computing:before { content: "\f111"; }
+.flaticon-community-manager:before { content: "\f112"; }
+.flaticon-competitor-analysis-graph:before { content: "\f113"; }
+.flaticon-content-sharing:before { content: "\f114"; }
+.flaticon-contest-cup:before { content: "\f115"; }
+.flaticon-customer-service:before { content: "\f116"; }
+.flaticon-customer-testimonial:before { content: "\f117"; }
+.flaticon-detective:before { content: "\f118"; }
+.flaticon-diagram:before { content: "\f119"; }
+.flaticon-domain-registration:before { content: "\f11a"; }
+.flaticon-download-information:before { content: "\f11b"; }
+.flaticon-duplicate-document:before { content: "\f11c"; }
+.flaticon-equalizer:before { content: "\f11d"; }
+.flaticon-favourite-book-with-a-bookmark:before { content: "\f11e"; }
+.flaticon-favourite-website:before { content: "\f11f"; }
+.flaticon-fresh-content:before { content: "\f120"; }
+.flaticon-general-mail:before { content: "\f121"; }
+.flaticon-giftbox-with-a-ribbon:before { content: "\f122"; }
+.flaticon-global-connect:before { content: "\f123"; }
+.flaticon-global-search:before { content: "\f124"; }
+.flaticon-goals:before { content: "\f125"; }
+.flaticon-golden-medal:before { content: "\f126"; }
+.flaticon-graphic:before { content: "\f127"; }
+.flaticon-horizontal-equalizer:before { content: "\f128"; }
+.flaticon-intelligent-search:before { content: "\f129"; }
+.flaticon-international-communication:before { content: "\f12a"; }
+.flaticon-international-position:before { content: "\f12b"; }
+.flaticon-jobs-open:before { content: "\f12c"; }
+.flaticon-keyword-search:before { content: "\f12d"; }
+.flaticon-keyword-selection:before { content: "\f12e"; }
+.flaticon-landing-page:before { content: "\f12f"; }
+.flaticon-light-bulb:before { content: "\f130"; }
+.flaticon-light-bulb-and-a-smartphone:before { content: "\f131"; }
+.flaticon-make-links:before { content: "\f132"; }
+.flaticon-map-localizator:before { content: "\f133"; }
+.flaticon-market-analysis:before { content: "\f134"; }
+.flaticon-marketing-strategy:before { content: "\f135"; }
+.flaticon-mobile-advertising:before { content: "\f136"; }
+.flaticon-mobile-application:before { content: "\f137"; }
+.flaticon-monitor-and-phone:before { content: "\f138"; }
+.flaticon-monitoring:before { content: "\f139"; }
+.flaticon-music-search:before { content: "\f13a"; }
+.flaticon-natural-link:before { content: "\f13b"; }
+.flaticon-nature-magnifying-glass:before { content: "\f13c"; }
+.flaticon-network-protection:before { content: "\f13d"; }
+.flaticon-notepad:before { content: "\f13e"; }
+.flaticon-office-briefcase:before { content: "\f13f"; }
+.flaticon-online-payment:before { content: "\f140"; }
+.flaticon-pac-man-game:before { content: "\f141"; }
+.flaticon-page-quality:before { content: "\f142"; }
+.flaticon-page-ranking:before { content: "\f143"; }
+.flaticon-payment-method:before { content: "\f144"; }
+.flaticon-people-pointer:before { content: "\f145"; }
+.flaticon-plugin:before { content: "\f146"; }
+.flaticon-plugin-specialist:before { content: "\f147"; }
+.flaticon-pointer-advice:before { content: "\f148"; }
+.flaticon-portfolio:before { content: "\f149"; }
+.flaticon-press-realise:before { content: "\f14a"; }
+.flaticon-private-network:before { content: "\f14b"; }
+.flaticon-programming:before { content: "\f14c"; }
+.flaticon-programming-code:before { content: "\f14d"; }
+.flaticon-promotion:before { content: "\f14e"; }
+.flaticon-pursuit-of-goals:before { content: "\f14f"; }
+.flaticon-pyramidal-link:before { content: "\f150"; }
+.flaticon-ranking:before { content: "\f151"; }
+.flaticon-retina:before { content: "\f152"; }
+.flaticon-return-of-invesments:before { content: "\f153"; }
+.flaticon-screen-with-a-presentation:before { content: "\f154"; }
+.flaticon-search-image:before { content: "\f155"; }
+.flaticon-searcher:before { content: "\f156"; }
+.flaticon-searching-text:before { content: "\f157"; }
+.flaticon-searching-tool:before { content: "\f158"; }
+.flaticon-searching-tool-1:before { content: "\f159"; }
+.flaticon-send-video:before { content: "\f15a"; }
+.flaticon-seo-consulting:before { content: "\f15b"; }
+.flaticon-seo-monitoring:before { content: "\f15c"; }
+.flaticon-seo-practice:before { content: "\f15d"; }
+.flaticon-service-courier:before { content: "\f15e"; }
+.flaticon-shopping-bag:before { content: "\f15f"; }
+.flaticon-signing-the-contract:before { content: "\f160"; }
+.flaticon-sitemap:before { content: "\f161"; }
+.flaticon-space-rocket:before { content: "\f162"; }
+.flaticon-tag:before { content: "\f163"; }
+.flaticon-target-dummy:before { content: "\f164"; }
+.flaticon-target-keyword:before { content: "\f165"; }
+.flaticon-team-support:before { content: "\f166"; }
+.flaticon-technical-support:before { content: "\f167"; }
+.flaticon-text-document-with-a-spider:before { content: "\f168"; }
+.flaticon-text-window:before { content: "\f169"; }
+.flaticon-time-planning:before { content: "\f16a"; }
+.flaticon-touch-screen-phone:before { content: "\f16b"; }
+.flaticon-traffic-analyze:before { content: "\f16c"; }
+.flaticon-translator-tool:before { content: "\f16d"; }
+.flaticon-update-windows:before { content: "\f16e"; }
+.flaticon-upload-information:before { content: "\f16f"; }
+.flaticon-url-link:before { content: "\f170"; }
+.flaticon-user-guide:before { content: "\f171"; }
+.flaticon-user-location:before { content: "\f172"; }
+.flaticon-users-comments:before { content: "\f173"; }
+.flaticon-users-communication:before { content: "\f174"; }
+.flaticon-video-player:before { content: "\f175"; }
+.flaticon-video-search:before { content: "\f176"; }
+.flaticon-web-development:before { content: "\f177"; }
+.flaticon-web-development-1:before { content: "\f178"; }
+.flaticon-web-guard:before { content: "\f179"; }
+.flaticon-web-hosting:before { content: "\f17a"; }
+.flaticon-web-link:before { content: "\f17b"; }
+.flaticon-web-security:before { content: "\f17c"; }
+.flaticon-web-visibility:before { content: "\f17d"; }
+.flaticon-website-design:before { content: "\f17e"; }
+.flaticon-website-optimization:before { content: "\f17f"; }
+.flaticon-website-speed-test:before { content: "\f180"; }
+.flaticon-white-homburg-hat:before { content: "\f181"; }

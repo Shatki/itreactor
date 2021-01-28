@@ -1,0 +1,7 @@
+# Allow font, js and css to be loaded from subdomain
+SetEnvIf Origin "http(s)?://(.+\.)?(itreactor\.ru)$" ORIGIN_DOMAIN=$0
+<IfModule mod_headers.c>
+    <FilesMatch "\.(eot|font.css|otf|ttc|ttf|woff|js|png|jpg|jpeg|gif)$">
+        Header set Access-Control-Allow-Origin %{ORIGIN_DOMAIN}e env=ORIGIN_DOMAIN
+    </FilesMatch>
+</IfModule>

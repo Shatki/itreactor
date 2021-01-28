@@ -9,19 +9,10 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
-import os
-from pathlib import Path
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
+from itreactor.private import *
 
 # Application definition
+WSGI_APPLICATION = 'itreactor.wsgi.application'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -30,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'fontawesome_5',
     'ckeditor',
     'blog',
     'web',
@@ -50,36 +42,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'itreactor.urls'
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
-WSGI_APPLICATION = 'itreactor.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 # Password validation
@@ -120,18 +82,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-STATIC_URL = '/assets/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
-]
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-LOGIN_REDIRECT_URL = '/'
-
 # Template list
 TEMPLATE_HOMEPAGE = 'homepage.html'
 TEMPLATE_ABOUT = 'aboutpage.html'
@@ -141,7 +91,7 @@ TEMPLATE_BLOG_DETAIL = 'articlepage.html'
 TEMPLATE_CONTACT = 'contactpage.html'
 TEMPLATE_ELEMENTS = 'elementspage.html'
 
-ARTICLE = u'article'
+ARTICLE = 'article'
 
 # Photos dirs list
 STATIC_IMAGE_DIR = 'img/'
@@ -153,6 +103,8 @@ AWARDS_PHOTOS_DIR = 'awards/'
 ARTICLE_PHOTOS_DIR = 'articles/'
 DOCUMENTS_DIR = 'documents/'
 DOCUMENTS_MINIATURES_DIR = 'miniatures/'
+
+LOGIN_REDIRECT_URL = '/'
 
 # Standard photos list
 NO_PHOTO = STATIC_IMAGE_DIR + 'nophoto.png'
@@ -195,22 +147,15 @@ CKEDITOR_CONFIGS = {
 PAGINATION_ARTICLES_ON_PAGE = 3  # Количество новостей на странице
 PAGINATION_LIST_RANGE = 3  # Число страниц отопбажаемых в строке пагинация между "Назад" и "Вперед"
 
-# Memcached
-# https://docs.djangoproject.com/en/3.1/topics/cache/
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
-    }
-}
-
 try:
     LOCAL_INSTALLED_APPS = LOCAL_MIDDLEWARE = []
-    from itreactor.local_settings import *
+    from itreactor.local import *
 
     INSTALLED_APPS += LOCAL_INSTALLED_APPS
     MIDDLEWARE = LOCAL_MIDDLEWARE + MIDDLEWARE
 except ImportError:
     from itreactor.production import *
 
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
